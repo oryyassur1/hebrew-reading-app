@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦔 סוניק לומד לקרוא!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Particle container for speed lines -->
+    <div id="particles"></div>
+
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+        <div class="sonic-logo">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Sonic_the_Hedgehog_head_icon.svg/200px-Sonic_the_Hedgehog_head_icon.svg.png" alt="Sonic" class="sonic-head bounce" crossorigin="anonymous">
+        </div>
+        <h1 class="title-main">סוניק לומד לקרוא!</h1>
+        <p class="subtitle">!בוא נלמד לקרוא עברית עם סוניק</p>
+        <div class="rings-display start-rings">
+            <span class="ring-icon">💍</span>
+            <span class="ring-icon">💍</span>
+            <span class="ring-icon">💍</span>
+        </div>
+        <button id="start-btn" class="btn btn-primary sonic-btn" onclick="startGame()">
+            !יאללה, בוא נתחיל
+            <span class="btn-sparkle">⚡</span>
+        </button>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+        <div class="game-header">
+            <div class="progress-section">
+                <div class="progress-bar-container">
+                    <div id="progress-bar" class="progress-bar"></div>
+                </div>
+                <span id="question-counter" class="question-counter">1 / 10</span>
+            </div>
+            <div class="score-section">
+                <span class="ring-icon small-ring">💍</span>
+                <span id="score-display" class="score-display">0</span>
+            </div>
+        </div>
+
+        <div class="game-content">
+            <div class="image-container" id="image-container">
+                <img id="word-image" class="word-image" alt="תמונה" crossorigin="anonymous">
+                <button id="sound-btn" class="sound-btn" onclick="speakCurrentWord()" title="שמע שוב">
+                    🔊
+                </button>
+            </div>
+
+            <p class="instruction-text">?איך כותבים את המילה</p>
+
+            <div id="options-container" class="options-container">
+                <!-- Options will be injected here -->
+            </div>
+
+            <div id="feedback-container" class="feedback-container hidden">
+                <div id="feedback-content"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Summary Screen -->
+    <div id="summary-screen" class="screen">
+        <div class="summary-content">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Sonic_the_Hedgehog_head_icon.svg/200px-Sonic_the_Hedgehog_head_icon.svg.png" alt="Sonic" class="sonic-head summary-sonic" crossorigin="anonymous">
+            <h1 id="summary-title" class="summary-title"></h1>
+            <div id="summary-score" class="summary-score"></div>
+            <div id="summary-rings" class="summary-rings"></div>
+            <div id="summary-message" class="summary-message"></div>
+            <div id="summary-details" class="summary-details"></div>
+            <button class="btn btn-primary sonic-btn" onclick="startGame()">
+                !בוא נשחק שוב
+                <span class="btn-sparkle">⚡</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="words.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
